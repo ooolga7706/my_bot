@@ -2,13 +2,16 @@ package main
 
 import (
     "log"
+    "os"
     "strings"
 
     tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api"
 )
 
 func main() {
-    bot, err := tgbotapi.NewBotAPI("7634588357:AAGz3Nfh6ET2bB-sdoTLUTN6qZVVTHYqvbw")
+    botToken := os.Getenv("TELEGRAM_TOKEN")
+    bot, err := tgbotapi.NewBotAPI(botToken)
+
     if err != nil {
         log.Panic("Ошибка создания бота:", err)
     }
